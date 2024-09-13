@@ -26,14 +26,14 @@ const listarMetas = async () => {
         instructions: false,
     });
 
+    metas.forEach((m) => {
+        m.checked = false;
+    });
+
     if (respostas.length == 0) {
         console.log("Nenhuma meta selecionada!");
         return;
     }
-
-    metas.forEach((m) => {
-        m.checked = false;
-    });
 
     respostas.forEach((resposta) => {
         const meta = metas.find((m) => {
@@ -64,22 +64,22 @@ const metasRealizadas = async () => {
 const start = async () => {
     while (true) {
         const opcao = await select({
-            message: "Menu >",
+            message: "---- Menu ----",
             choices: [
                 {
-                    name: "Cadastrar meta",
+                    name: "Cadastrar meta: ",
                     value: "cadastrar",
                 },
                 {
-                    name: "Listar metas",
+                    name: "Listar metas: ",
                     value: "listar",
                 },
                 {
-                    name: "Metas realizadas",
+                    name: "Metas realizadas: ",
                     value: "realizadas",
                 },
                 {
-                    name: "Sair",
+                    name: "Sair.",
                     value: "sair",
                 },
             ],
